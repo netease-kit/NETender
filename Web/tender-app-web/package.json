@@ -1,0 +1,49 @@
+{
+  "name": "netender-app-web",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Secure, simple and open video conferencing solution that enhances office collaboration efficiency and caters to meetings of all sizes. Features include remote audio/video conferences and online collaboration tools.",
+  "author": "netease",
+  "scripts": {
+    "dev": "umi dev",
+    "dev:prod": "cross-env RUN_ENV=production umi dev",
+    "build": "cross-env RUN_ENV=production umi build",
+    "build:dev": "umi build",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,less}\"",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "@umijs/plugins": "^4.4.9",
+    "husky": "^8.0.3",
+    "js-sha1": "^0.7.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "umi": "^4.4.9",
+    "wasm-feature-detect": "^1.8.0",
+    "zustand": "^5.0.8",
+    "netender-web-kit": "^1.1.0"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^6.0.2",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@umijs/lint": "^4.4.9",
+    "ahooks": "^3.8.4",
+    "antd": "5.18.0",
+    "dayjs": "^1.11.18",
+    "eventemitter3": "^5.0.1",
+    "lint-staged": "^15.5.1",
+    "stylelint": "^14.16.1",
+    "typescript": "^5.0.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,less}": [
+      "umi lint"
+    ]
+  }
+}

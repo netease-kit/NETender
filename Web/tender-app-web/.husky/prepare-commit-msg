@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# 提交信息文件的路径
+COMMIT_MSG_FILE=$1
+
+# 获取当前分支名称
+CURRENT_BRANCH=$(git branch --show-current)
+
+# 使用'_'分割分支名称，获取type字段，type = feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert
+BRANCH_TYPE=${CURRENT_BRANCH%%/*}
+
+# 提取issues后的字符串
+# 假设分支名格式为 xxx/feature_issues-OMRXGJPT-51238
+# ISSUE_ID=$(echo $CURRENT_BRANCH | grep -o 'issues-.*' | sed 's/issues-//')
+
+# 假设分支名格式为 xxx/OMRXGJPT-51238;  xxx/OMIM-51238
+ISSUE_ID=$(echo $CURRENT_BRANCH | grep -o 'OM.*')
+
+
+# 如果提取到了Branch Type
+if [ ! -z "$BRANCH_TYPE" ]; then
+    # 读取已有的提交信息
+    COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+    echo "Commit COMMIT_MSG: $COMMIT_MSG"
+
+    #如果已有提交信息不包含type，则添加它
+    if ! echo "$COMMIT_MSG:" | grep -q "^$BRANCH_TYPE:"; then
+        echo "$BRANCH_TYPE: $COMMIT_MSG" > "$COMMIT_MSG_FILE"
+    fi
+fi
+
+# 如果提取到了Issue ID
+if [ ! -z "$ISSUE_ID" ]; then
+    COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+
+    # 如果已有提交信息不包含Overmind-id，则添加它
+    if ! echo "$COMMIT_MSG" | grep -q "Overmind-id:"; then
+        echo "$COMMIT_MSG
+
+Overmind-id: $ISSUE_ID" > "$COMMIT_MSG_FILE"
+    fi
+fi
