@@ -1,0 +1,26 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 可选，控制全局滚动条 */
+}
+
+.tender_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* box-sizing: border-box; 强烈推荐加 */
+  box-sizing: border-box;
+
+  .video_preview_container {
+    flex: 1;
+    min-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

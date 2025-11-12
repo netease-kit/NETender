@@ -1,0 +1,169 @@
+// 公共样式
+.flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+// 主容器
+.container {
+  min-height: 540px;
+  min-width: 1200px;
+  background: #eef5ff;
+  height: calc(100vh - 74px);
+  .flex_center();
+  .flex_column();
+}
+
+// 预约会议按钮
+.schedule_div {
+  width: 1200px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.schedule_btn {
+  width: 96px;
+  height: 40px;
+  opacity: 1;
+  border-radius: 8px;
+  padding: 9px 20px;
+  gap: 10px;
+
+  font-family: PingFang SC;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: center;
+  background: #337eff;
+  color: #ffffff;
+}
+
+.title {
+  height: 48px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  background: #e5f1ff;
+}
+
+.title_text {
+  opacity: 1;
+  font-family: PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #1e1f27;
+  margin-left: 12px;
+}
+
+.no_data_div {
+  .flex_center();
+  .flex_column();
+}
+.no_data_div_text {
+  font-family: PingFang SC;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.no_data_div_img {
+  width: 120px;
+}
+
+// 表格内容区
+.table_content {
+  background: white;
+  width: 1200px;
+  height: calc(100vh - 194px);
+}
+
+.table_content_no_data {
+  background: white;
+  width: 1200px;
+  height: calc(100vh - 194px);
+  .flex_center();
+  .flex_column();
+}
+
+/* 保持行高 */
+.custom_row td {
+  height: 42px !important;
+  line-height: 42px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* 如表头也想42px高，可加 */
+.ant-table-thead > tr > th {
+  background: #f0f1f5 !important;
+  text-align: left !important;
+  height: 42px;
+  line-height: 42px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* 内容左对齐、去线条 */
+.ant-table,
+.ant-table th,
+.ant-table td,
+.ant-table-cell {
+  border: none !important;
+  white-space: nowrap; // 不换行（表头与单元格都单行显示）
+}
+.ant-table-tbody > tr > td {
+  text-align: left !important;
+  border-bottom: none !important;
+  border-right: none !important;
+}
+.ant-table-wrapper .ant-table-content {
+  border: none !important;
+}
+.ant-table-cell {
+  white-space: nowrap; // 全部不换行
+}
+
+// index.less
+
+.btnGroup {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px; // 按钮间距
+}
+
+.actionBtn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 5px;
+  //min-width: 64px;
+  text-align: center;
+}
+
+.blueText {
+  color: #1677ff !important; // AntD primary 色，确保高亮
+}
+
+.redText {
+  color: #ff4d4f !important; // AntD danger 色
+}
